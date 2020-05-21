@@ -9,10 +9,11 @@
   Qual loop você deve usar para que essa mensagem seja mostrada no console?
   */
   var once = false;
-  while (once === false){
-       once = true;
-        console.log("Entrou ao menos uma vez!")
-  };
+  do {
+    console.log("Entrou ao menos uma vez!")
+  } while (once);
+       
+  
 
   /*
   Crie um objeto chamado `person`, que receba as seguintes propriedades:
@@ -22,7 +23,7 @@
   var person = {
   name : 'Gustavo',
   age : 20,
-  weight: 1.85,
+  weight: 85,
   birthday:  09/12/1999
   };
 
@@ -35,12 +36,13 @@
   Após o loop, mostre a frase:
   'The person has [COUNTER] properties'
   */
+  var counter = 0;
   for (var prop in person){
-    var counter = person.length;
-    console.log("The "+person+" of person is");
-    console.log("'The person has "+counter+" properties'")
-    break;
-  };
+    console.log("The "+prop+" of person is"+person[prop]+" " );
+    counter++;
+
+  }
+   console.log("'The person has "+counter+" properties'")
   
       
 
