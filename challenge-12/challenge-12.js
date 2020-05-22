@@ -37,8 +37,8 @@
   `pages`: Number
   */  
   books.push({name: 'Harry Potter e o Calice de fogo', pages: 600 });
-  books.push({name: 'Harry Potter e o Prizioneiro de Azkabam', pges: 550 });
-  books.push({name: 'Harry Potter e a Camera Secreta', pges: 350 });
+  books.push({name: 'Harry Potter e o Prizioneiro de Azkabam', pages: 550 });
+  books.push({name: 'Harry Potter e a Camera Secreta', pages: 350 });
   
   console.log( '\nLista de livros: '+books+' ');
 
@@ -65,7 +65,7 @@
   Converta os objetos que ficaram em `books` para strings.
   */
    
-  books.toString();
+  books = JSON.stringify(books);
   console.log( '\nLivros em formato string:' );
 
   /*
@@ -76,7 +76,7 @@
   Converta os livros novamente para objeto.
   */
   // ?
-  books.reverse();
+  books = JSON.parse(books);
   console.log( '\nAgora os livros são objetos novamente:' );
 
   /*
@@ -84,7 +84,9 @@
   no formato abaixo:
       "[PROPRIEDADE]: [VALOR]"
   */
-  // ?
+  for(var i = 0; i < Object.keys(books).length; i++){
+    console.log(books[i].name, books[i].pages);
+  }
 
   /*
   Crie um array chamado `myName`. Cada item desse array deve ser uma letra do
