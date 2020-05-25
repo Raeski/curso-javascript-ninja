@@ -22,16 +22,15 @@
   Crie uma variável chamada `brasil`, que irá receber as duas regiões
   concatenadas. Mostre o `brasil` no console.
   */
-  var brasil = [];
-  brasil.push(sul)
-  console.log( '\nAlguns Estados do Brasil:''');
+  var brasil = sul.concat(sudeste);
+  console.log( '\nAlguns Estados do Brasil:'+brasil+'');
   // ?
 
   /*
   Adicione 3 novos estados da região Norte no início do array e mostre no console.
   */
-   var norte = ['Para', 'Amazonas', 'Roraima']
-   console.log( '\nAlguns Estados do Brasil:' +brasil.unshift(norte)+'');
+ 
+  console.log( '\nAlguns Estados do Brasil:' +brasil.unshift('Para', 'Amazonas', 'Roraima')+'');
   // ?
 
 
@@ -45,8 +44,7 @@
   Crie um novo array chamado `newSul`, que receba somente os estados do sul,
   pegando do array `brasil`. Não remova esses itens de `brasil`.
   */
-  var newSul = brasil.slice(3);
-  newSul.pop();
+  var newSul = brasil.slice(2, 5);
   
   
 
@@ -78,25 +76,26 @@
   /*
   Remova de `brasil` os estados do `sudeste`, colocando-os em uma variável
   chamada `newSudeste`.
-  */
-  // ?
-
+  */  
+  var newSudeste = brasil.splice(5);
+ 
   /*
   Adicione os estados do `nordeste` ao array `brasil`. Esses estados devem
   ficar no mesmo nível que os estados já existentes, não em um array separado.
   */
-  // ?
-
+  brasil = brasil.concat( nordeste );
   /*
   Mostre no console os estados em `newSudeste`.
   */
   console.log( '\nEstados em newSudeste:' );
+  console.log(newSudeste);
   // ?
 
   /*
   Mostre no console os estados do `brasil`.
   */
   console.log( '\nAlguns estados do Brasil:' );
+  console.log(brasil);
   // ?
 
   /*
@@ -106,12 +105,19 @@
   - `id`: que será o índice do array `brasil`,
   - `estado`: que será o estado do array `brasil`.
   */
-  // ?
+  var newBrasil = [];
+  brasil.forEach(function (item, index){
+    newBrasil.push({
+      id: index,
+      estado: item
+    });
+  });
 
   /*
   Mostre o array `newBrasil` no console
   */
   console.log( '\nnewBrasil:' );
+  console.log(newBrasil)
   // ?
 
   /*
@@ -122,8 +128,15 @@
   - "Nem todos os estados tem mais de 7 letras!"
   */
   console.log( '\nTodos os estados de `brasil` tem mais de 7 letras?' );
-  // ?
-
+  var every = brasil.every(function(item){}
+    return ite.length > 7;
+                           });
+  console.log(every
+              ? 'Sim, todos os estados tem mais de 7 letras!'
+              : 'Nem todos os estados tem mais de 7 letras!'
+             );
+  
+  
   /*
   Percorra o array `brasil` e verifique se o Ceará está incluído, atribuindo o
   resultado à uma variável. Se esse estado existir no array, mostrar a frase no
@@ -133,7 +146,14 @@
   - "Ceará não foi incluído :("
   */
   console.log( '\nCeará está incluído em `brasil`?' );
-  // ?
+  var some = brasil.some(function (item){
+    return === 'Ceara';
+  });
+  console.log(
+    some
+    ? 'Ceará está incluido!'
+    : 'Ceará não foi incluido!'
+  );
 
   /*
   Percorra o array `newBrasil` e crie um novo array que some 1 no ID de cada
@@ -141,7 +161,14 @@
   - "[ESTADO] pertence ao Brasil."
   Atribua o novo array a uma variável chamada `map`.
   */
-  // ?
+  var map = newBrasil.map(function(item, index) ){
+      item.id++;
+      item.estado += 'pertence ao Brasil';
+      return item;
+            
+  });
+  
+  
 
   /*
   Mostre no console o array criado acima:
@@ -160,4 +187,4 @@
   */
   console.log( '\nEstados com ID par:' );
   // ?
-})()
+})();
