@@ -20,8 +20,10 @@
   números do array criado acima. Mostre esse novo array no console.
   */
   console.log( '\nJust Numbers:' );
-  var justNumbers = [1,2,3,4,5,6,7,8,9,10]
-  
+  var justNumbers = numberObjects.map(function(item){
+    return item.number;
+  });
+  console.log(justNumbers);
 
   /*
   Crie um novo array chamado `justMod2Or3`, que receberá do array criado acima
@@ -50,8 +52,8 @@
   Mostre o resultado no console.
   */
   console.log( '\nOperation:' );
-  var operation = justMod20r3.reduce(function (acumulado, atual, index, array){
-    return acumulado + atual * atual;  
+  var operation = justMod20r3.reduce(function (acumulado, atual){
+    return (acumulado + 1) * atual;  
   },0);
   console.log(operation);
 
@@ -62,7 +64,7 @@
   */
   console.log( '\nOperation 2:' );
   var operation2 = justMod20r3.reduceRight(function (acumulado, atual, index, array){
-    return acumulado + atual * atual;  
+    return (acumulado + 1) * atual;  
   },0);
   console.log(operation2);
 
@@ -77,8 +79,8 @@
   console.log( '\nSeu nome na língua do "P":' );
   var name = ['g','u','s','t','a','v','o'];
   name.reduce(function (acumulado, atual, index, array){
-    return acumulado + atual;  
-  },'P');
+    return acumulado + 'P' + atual;  
+  },'');
  
 
   /*
@@ -107,13 +109,12 @@
   o que acontece ;)
   */
   console.log( '\nExiste um { number: 2 } em numberObjects?' );
-  numberObjects.forEach(function(item,index){
-    if(numberObjects.number === 2){
-      console.log("Existe um objeto { number: 2 } em numberObjects!")
-    } else {
-      console.log("Não existe um objeto { number: 2 } em numberObjects :(")
-    } 
-  });
+  if (numberObjects.indexOf({number: 2})) > -1){
+    console.log("Existe um objeto { number: 2 } em numberObjects!")
+  } 
+  else {
+    console.log("Não existe um objeto { number: 2 } em numberObjects :()
+  }
 
   /*
   Fazendo o mesmo do exercício acima, mas começando a buscar do último índice,
@@ -129,4 +130,4 @@
   console.log( '\njustMod2Or3 é um array? Se for, a representação dele em String é:' );
   console.log(Array.isArray(justMod20r3));
   //true
-}()) 
+})() 
